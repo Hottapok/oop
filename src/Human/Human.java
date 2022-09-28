@@ -2,8 +2,8 @@ package Human;
 
 public class Human {
     private String name;
-    private int birthdayDate;
-    private String city;
+    private int yearOfBirth;
+    private String town;
     private String position;
 
     public String getName() {
@@ -14,16 +14,20 @@ public class Human {
         this.name = name;
     }
 
-    public int getBirthdayDate() {
-        return birthdayDate;
+    public int getYearOfBirth() {
+        return yearOfBirth;
     }
 
-    public void setBirthdayDate(int birthdayDate) {
-        this.birthdayDate = birthdayDate;
+    public void setYearOfBirth(int yearOfBirth) {
+        if (yearOfBirth <= 0) {
+            this.yearOfBirth = Math.abs(yearOfBirth);
+        } else {
+            this.yearOfBirth = yearOfBirth;
+        }
     }
 
-    public String getCity() {
-        return city;
+    public String getTown() {
+        return town;
     }
 
     public String getPosition() {
@@ -34,28 +38,26 @@ public class Human {
         this.position = position;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setTown(String town) {
+        if (town == null) {
+            this.town = "Информация отсутствует";
+        } else {
+            this.town = town;
+        }
     }
 
-    public Human(String name, int birthdayDate, String city, String position) {
+    public Human(String name, int yearOfBirth, String town, String position) {
         if (name == null) {
             this.name = "Информация отсутствует";
         } else {
             this.name = name;
         }
-        if (birthdayDate <= 0) {
-            this.birthdayDate = Math.abs(birthdayDate);
-        } else {
-            this.birthdayDate = birthdayDate;
-        }
-        if (city == null) {
-            this.name = "Информация отсутствует";
-        } else {
-            this.city = city;
-        }
+            this.yearOfBirth = yearOfBirth;
+
+            this.town = town;
+
         if (position==null){
-            this.name = "Информация отсутствует";
+            this.position = "Информация отсутствует";
         }else {
         this.position = position;}
     }
